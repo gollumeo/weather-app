@@ -1,87 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="shortcut icon"
-      href="./assets/images/icons/gollumeo.png"
-      type="image/x-png"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="./assets/scripts/script.js" defer></script>
+  <link rel="shortcut icon" href="./assets/images/icons/gollumeo.png" type="image/x-png" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
 
-    <title>Golluméweather</title>
-  </head>
-  <body>
-    <div id="wrapper">
-      <div class="header">
-        <h1>
-          Welcome to <em>another</em> Weather App! Please submit the fields
-          below to have a broadcast from the city of your choice. 😎
-        </h1>
+  <script src="./assets/scripts/script.js" defer></script>
+
+  <title>Golluméweather</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div class="header">
+      <h1>
+        Welcome to <em>another</em> Weather App! Please submit the fields
+        below to have a broadcast from the city of your choice. 😎
+      </h1>
+    </div>
+
+    <div class="form">
+      <form action="#">
+        <span class="text">City:</span> <input type="text" id="city" required /><br />
+        <span class="text">Country:</span>
+        <select name="country" id="country">
+          <option value="select">Select a country</option>
+          <option value="FR">France</option>
+          <option value="BE">Belgium</option>
+          <option value="DE">Germany</option>
+          <option value="GB">United Kingdom</option>
+          <input type="button" value="Submit" id="submit" />
+        </select> <br>
+      </form>
+    </div>
+
+    <div id="loader">
+      <div class="center">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
       </div>
+    </div>
 
-      <div class="form">
-        <form action="#">
-          <span class="text">City:</span> <input type="text" id="city"/><br />
-          <span class="text">Country:</span>
-          <select name="country" id="country">
-            <option value="select">Select a country</option>
-            <option value="FR">France</option>
-            <option value="BE">Belgium</option>
-            <option value="DE">Germany</option>
-            <option value="GB">United Kingdom</option>
-            <input type="button" value="Submit" id="submit" />
-          </select> <br>
-        </form>
-      </div>
-
-      <div id="loader">
-        <div class="center">
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
+    <div id="weather-display">
+      <div class="card">
+        <div id="current">
+          <div class="city">
+            Allain
+          </div>
+          <div class="date">22/12/2022</div>
+          <div class="temp">
+            <strong>9°C</strong>
+            <div class="range">
+              <span class="min">Min temperature: 0°C</span> | <span class="max">Max temperature: 4°C</span>
+            </div>
+          </div>
+          <div class="humidity">
+            Humidity: 80%
+          </div>
+          <div class="wind">
+            Wind: 8 km/h
+          </div>
+          <div class="weather">
+            Weather: Clouds
+          </div>
+        </div>
+        <div class="forecast-wrapper">
+          <div class="hour-col">
+            <div class="hour-range">00:00<br>03:00</div>
+            <div class="hour-range">03:00<br>06:00</div>
+            <div class="hour-range">06:00<br>09:00</div>
+            <div class="hour-range">09:00<br>12:00</div>
+            <div class="hour-range">12:00<br>15:00</div>
+            <div class="hour-range">15:00<br>18:00</div>
+            <div class="hour-range">18:00<br>21:00</div>
+            <div class="hour-range">21:00<br>00:00</div>
+          </div>
+          <div class="humidity-col">
+            <div class="humidity-forecast">Humidity: 50%</div>
+            <div class="humidity-forecast">Humidity: 50%</div>
+            <div class="humidity-forecast">Humidity: 50%</div>
+            <div class="humidity-forecast">Humidity: 50%</div>
+            <div class="humidity-forecast">Humidity: 50%</div>
+            <div class="humidity-forecast">Humidity: 50%</div>
+            <div class="humidity-forecast">Humidity: 50%</div>
+            <div class="humidity-forecast">Humidity: 50%</div>
+          </div>
+          <div class="wind-col">
+            <div class="wind-forecast">Wind: 8 km/h</div>
+            <div class="wind-forecast">Wind: 8 km/h</div>
+            <div class="wind-forecast">Wind: 8 km/h</div>
+            <div class="wind-forecast">Wind: 8 km/h</div>
+            <div class="wind-forecast">Wind: 8 km/h</div>
+            <div class="wind-forecast">Wind: 8 km/h</div>
+            <div class="wind-forecast">Wind: 8 km/h</div>
+            <div class="wind-forecast">Wind: 8 km/h</div>
+          </div>
+          <div class="weather-col">
+            <div class="weather-forecast">Weather: Windy</div>
+            <div class="weather-forecast">Weather: Windy</div>
+            <div class="weather-forecast">Weather: Windy</div>
+            <div class="weather-forecast">Weather: Windy</div>
+            <div class="weather-forecast">Weather: Windy</div>
+            <div class="weather-forecast">Weather: Windy</div>
+            <div class="weather-forecast">Weather: Windy</div>
+            <div class="weather-forecast">Weather: Windy</div>
+          </div>
+          <div class="temperature-col">
+            <div class="temperature-forecast">Temperature: 5°C</div>
+            <div class="temperature-forecast">Temperature: 5°C</div>
+            <div class="temperature-forecast">Temperature: 5°C</div>
+            <div class="temperature-forecast">Temperature: 5°C</div>
+            <div class="temperature-forecast">Temperature: 5°C</div>
+            <div class="temperature-forecast">Temperature: 5°C</div>
+            <div class="temperature-forecast">Temperature: 5°C</div>
+            <div class="temperature-forecast">Temperature: 5°C</div>
+          </div>
+        
         </div>
       </div>
-
 
     </div>
 
-    <div class="footer">
-      <footer>
-        <div class="becode">
-            <p>
-              © Pierre "Golluméo" Mauriello @
-              <a href="https://becode.org">BeCode</a> - Keller 5 - All rights
-              reserved.
-            </p>
-        </div>
+  </div>
 
-        <div class="method">
-            <p>
-              Graphic assets & branding are
-              <a href="https://www.method.gg/branding">Method</a>'s property.
-                <img src="./assets/images/Method_MediaKit_June_2018/SVG/Method_2018_Logo_Icon_Only.svg" alt="method-logo"/>
-            </p>
-        </div>
-      </footer>
+  
+</body>
+<div class="footer">
+  <footer>
+    <div class="becode">
+      <p>
+        © Pierre "Golluméo" Mauriello @
+        <a href="https://becode.org">BeCode</a> - Keller 5 - All rights
+        reserved.
+      </p>
     </div>
-  </body>
+
+    <div class="method">
+      <p>
+        Graphic assets & branding are
+        <a href="https://www.method.gg/branding">Method</a>'s property.
+        <img src="./assets/images/Method_MediaKit_June_2018/SVG/Method_2018_Logo_Icon_Only.svg" alt="method-logo" />
+      </p>
+    </div>
+  </footer>
+</div>
+
 </html>

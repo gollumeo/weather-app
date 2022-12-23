@@ -189,6 +189,9 @@ body {
   }
 }
 
+#weather-display {
+  display: none;
+}
 #weather-display .card {
   width: 50%;
   box-shadow: 0 0px 8px rgba(0, 0, 0, 0.4);
@@ -221,8 +224,12 @@ body {
 #weather-display .card .range,
 #weather-display .card .wind,
 #weather-display .card .humidity,
-#weather-display .card .weather {
+#weather-display .card .weather,
+#weather-display .card .hour {
   margin-top: 1.5%;
+}
+#weather-display .card .min, #weather-display .card .max {
+  display: inline;
 }
 #weather-display .card .forecast-wrapper {
   display: flex;

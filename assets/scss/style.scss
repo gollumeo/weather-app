@@ -253,6 +253,7 @@ body {
 // For JS
 
 #weather-display {
+  display: none;
 
   .card {
     width: 50%;
@@ -288,8 +289,13 @@ body {
     .range,
     .wind,
     .humidity,
-    .weather {
+    .weather,
+    .hour {
       margin-top: 1.5%;
+    }
+
+    .min, .max {
+      display: inline;
     }
 
     .forecast-wrapper {

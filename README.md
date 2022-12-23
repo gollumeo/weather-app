@@ -1,1 +1,3 @@
-# weather-app
+# Weather Application
+
+## WORK IN PROGRESS

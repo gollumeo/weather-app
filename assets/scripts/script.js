@@ -1,8 +1,10 @@
-import { API_KEY, WEATHER_DISPLAY } from "./init.js";
+import { API_KEY, CARD, pushDate, WEATHER_DISPLAY } from "./init.js";
 import { CITY_INPUT } from "./init.js";
 import { COUNTRY_SELECTOR } from "./init.js";
 import { SUBMIT_BUTTON } from "./init.js";
 import { LOADER } from "./init.js";
+import { NO } from "./init.js";
+import { PLS } from "./init.js";
 
 SUBMIT_BUTTON.addEventListener("click", () => {
   let idCurrent = document.querySelector("#current"),
@@ -86,9 +88,11 @@ WEATHER_DISPLAY.style.display = "none";
               } else if (dateToCompare.getDate() == today.getDate() + 4) {
                 weeklyForecastDayFive.push(ts)
               }
-
-              console.table(...weeklyForecastDayTwo)
             }
+
+            let forecastArrays = [];
+            forecastArrays.push(weeklyForecastDayTwo, weeklyForecastDayThree, weeklyForecastDayFour, weeklyForecastDayFive)
+            console.table(forecastArrays)
 
             console.log(dailyForecast);
 
@@ -109,6 +113,13 @@ WEATHER_DISPLAY.style.display = "none";
               "Wind speed: " + dailyForecast[0].wind.speed + " km/h";
             currentWeather.innerText =
               "Weather: " + dailyForecast[0].weather[0].description;
+
+              // for (let i = 0; i < forecastArrays.length; i++) {
+              //   let newDivCard = document.createElement("div");
+              //   newDivCard.className = "card";
+              //   CARD.appendChild(newDivCard)
+              //   console.log("coucou")
+              // }
 
             for (let i = 0; i < dailyForecast.length; i++) {
               let anotherDate = new Date(dailyForecast[i + 1].dt * 1000);
@@ -148,6 +159,8 @@ WEATHER_DISPLAY.style.display = "none";
               newDivTemp.innerText = `${temp} °C`;
               temperatureColumn.appendChild(newDivTemp)
             }
+
+
           });
         } catch (error) {
           window.alert(error);
@@ -159,4 +172,8 @@ WEATHER_DISPLAY.style.display = "none";
   }, 2000);
 
   });
+
+  console.log(NO)
+  console.log(PLS)
+  console.log(pushDate)
 

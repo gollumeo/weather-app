@@ -4,4 +4,7 @@ export const COUNTRY_SELECTOR = document.querySelector("#country");
 export const SUBMIT_BUTTON = document.querySelector("#submit")
 export const LOADER = document.querySelector("#loader");
 export const WEATHER_DISPLAY = document.querySelector("#weather-display");
-
+export const CARD = document.querySelector("#card");
+export const NO = "Please do not steal or even take parts of my code. Thanks! :)"
+export const PLS = "This has been pushed for the last time at the following date:"
+export const pushDate = new Date('12-27-2022 20:11').toLocaleString({hour: "2-digit", minute: "2-digit"})

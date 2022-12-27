@@ -21,7 +21,7 @@ SUBMIT_BUTTON.addEventListener("click", () => {
               windColumn = forecastWrapper.querySelector(".wind-col"),
               weatherColumn = forecastWrapper.querySelector(".weather-col"),
               temperatureColumn = forecastWrapper.querySelector(".temperature-col");
-  
+
 LOADER.style.opacity = "1";
 hourColumn.innerHTML = null;
 humidityColumn.innerHTML = null;
@@ -43,12 +43,12 @@ WEATHER_DISPLAY.style.display = "none";
       let data = await request.json();
       return data;
     };
-  
+
     try {
       geocodingCity(city, country).then((coordinates) => {
         let lon = coordinates[0].lon;
         let lat = coordinates[0].lat;
-  
+
         const weatherCall = async (lat, lon) => {
           let call = await fetch(
             `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
@@ -56,25 +56,25 @@ WEATHER_DISPLAY.style.display = "none";
           let answer = await call.json();
           return answer;
         };
-  
+
         try {
           weatherCall(lat, lon).then((weatherData) => {
             let returnedData = [];
-  
+
             weatherData.list.forEach((index) => {
               returnedData.push(index);
             });
-  
+
             let dailyForecast = [];
             let weeklyForecastDayTwo = [];
             let weeklyForecastDayThree = [];
             let weeklyForecastDayFour = [];
             let weeklyForecastDayFive = [];
             let today = new Date();
-  
+
             for (let ts of returnedData) {
               let dateToCompare = new Date(ts.dt * 1000);
-  
+
               if (dateToCompare.getDate() <= today.getDate()) {
                 dailyForecast.push(ts);
               } else if (dateToCompare.getDate() == today.getDate() + 1) {
@@ -89,9 +89,9 @@ WEATHER_DISPLAY.style.display = "none";
 
               console.table(...weeklyForecastDayTwo)
             }
-  
+
             console.log(dailyForecast);
-  
+
             WEATHER_DISPLAY.style.display = "block";
             currentCity.innerText = city;
             currentDate.innerText = today.toLocaleString("fr-FR", {
@@ -109,34 +109,39 @@ WEATHER_DISPLAY.style.display = "none";
               "Wind speed: " + dailyForecast[0].wind.speed + " km/h";
             currentWeather.innerText =
               "Weather: " + dailyForecast[0].weather[0].description;
-  
+
             for (let i = 0; i < dailyForecast.length; i++) {
-              let newDivHour = document.createElement("div");
-              newDivHour.className = "hour";
               let anotherDate = new Date(dailyForecast[i + 1].dt * 1000);
               let timeLessThreeHours = anotherDate.getHours() - 3;
               let retrievedTime = anotherDate.toLocaleString("fr-FR", { hour: "2-digit", minute: "2-digit" });
-              newDivHour.innerHTML = timeLessThreeHours + ":00" + "<br>" + retrievedTime;
-              hourColumn.appendChild(newDivHour);
-  
+
+              if (anotherDate.getDate() == today.getDate()) {
+                let newDivHour = document.createElement("div");
+                newDivHour.className = "hour";
+                newDivHour.innerHTML = timeLessThreeHours + ":00" + "<br>" + retrievedTime;
+                hourColumn.appendChild(newDivHour);
+              } else {
+                return;
+              }
+
               let newDivHumidity = document.createElement("div");
               newDivHumidity.className = "humidity";
               let humidity = dailyForecast[i + 1].main.humidity;
               newDivHumidity.innerText = `Humidity: ${humidity}%`
               humidityColumn.appendChild(newDivHumidity);
-  
+
               let newDivWind = document.createElement("div");
               newDivWind.className = "wind";
               let wind = dailyForecast[i + 1].wind.speed;
               newDivWind.innerText = `Wind: ${wind} km/h`
               windColumn.appendChild(newDivWind)
-  
+
               let newDivWeather = document.createElement("div");
               newDivWeather.className = "weather";
               let weather = dailyForecast[i + 1].weather[0].description;
               newDivWeather.innerText = weather;
               weatherColumn.appendChild(newDivWeather)
-  
+
               let newDivTemp = document.createElement("div");
               newDivTemp.className = "temp";
               let temp = Math.round(dailyForecast[i + 1].main.temp);

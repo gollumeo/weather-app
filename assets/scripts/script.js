@@ -1,4 +1,5 @@
-import { API_KEY, CARD, pushDate, WEATHER_DISPLAY } from "./init.js";
+import { CARD, pushDate, WEATHER_DISPLAY } from "./init.js";
+import { API_KEY } from "./config.js";
 import { CITY_INPUT } from "./init.js";
 import { COUNTRY_SELECTOR } from "./init.js";
 import { SUBMIT_BUTTON } from "./init.js";

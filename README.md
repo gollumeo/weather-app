@@ -91,7 +91,7 @@ Distributed under the MIT License. See [LICENSE](https://github.com/gollumeo/wea
 
 ## Authors
 
-* **Pierre Mauriello** - *Junior Web Developer* - [Pierre Mauriello](https://github.com/gollumeo) - *Weather App*
+* **[Pierre Mauriello](https://github.com/gollumeo)** - *Junior Web Developer* - *Weather App*
 
 ## Acknowledgements
 

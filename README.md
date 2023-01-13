@@ -97,4 +97,3 @@ Distributed under the MIT License. See [LICENSE](https://github.com/gollumeo/wea
 
 * [ShaanCoding](https://github.com/ShaanCoding/)
 * [BeCode](https://github.com/becodeorg/becodeorg)
-* []()
